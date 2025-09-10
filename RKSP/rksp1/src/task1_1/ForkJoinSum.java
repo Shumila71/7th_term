@@ -4,7 +4,7 @@ import java.util.concurrent.RecursiveTask;
 import java.util.concurrent.ForkJoinPool;
 
 public class ForkJoinSum extends RecursiveTask<Long> {
-    private static final int THRESHOLD = 10000000;
+    private static final int THRESHOLD = 100000;
     private final int[] array;
     private final int start;
     private final int end;

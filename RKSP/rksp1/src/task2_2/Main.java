@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String sourceFile = "/Users/mac/IdeaProjects/rksp1/src/task2_2/largefile.txt";
+        String sourceFile = "D:/code/_7/RKSP/rksp1/src/task2_2/largefile.txt";
         String destinationFile = "copy.txt";
 
         // Получение экземпляра Runtime для измерения памяти

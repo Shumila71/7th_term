@@ -32,7 +32,7 @@ public class ChecksumCalculator {
     }
 
     public static void main(String[] args) {
-        String filePath = "/Users/mac/IdeaProjects/rksp1/src/task2_3/test.txt"; // Укажите путь к вашему файлу
+        String filePath = "D:\\code\\_7\\RKSP\\rksp1\\src\\task2_3\\test.txt"; 
 
         try {
             int checksum = calculateChecksum(filePath);

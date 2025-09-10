@@ -15,7 +15,7 @@ public class DirectoryWatcher {
     private static List<String> previousLines = new ArrayList<>();
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        Path path = Paths.get("/Users/mac/IdeaProjects/rksp1/src/task2_4"); // Укажите путь к вашему каталогу
+        Path path = Paths.get("D:\\code\\_7\\RKSP\\rksp1\\src\\task2_4"); // Укажите путь к вашему каталогу
         WatchService watchService = FileSystems.getDefault().newWatchService();
         path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE,
                 StandardWatchEventKinds.ENTRY_MODIFY,

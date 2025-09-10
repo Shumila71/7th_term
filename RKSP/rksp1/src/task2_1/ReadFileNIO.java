@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 
 public class ReadFileNIO {
     public static void main(String[] args) {
-        String filePath = "/Users/mac/IdeaProjects/rksp1/src/task2_1/file.txt";
+        String filePath = "D:/code/_7/RKSP/rksp1/src/task2_1/file.txt";
         try {
             Files.lines(Paths.get(filePath), StandardCharsets.UTF_8)
                     .forEach(System.out::println);
