@@ -1,0 +1,45 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Клиент" as Client
+actor "Администратор" as Admin
+actor "Владелец" as Owner
+
+
+  usecase "Зарегистрироваться" as UC1
+  usecase "Забронировать зал" as UC2
+  usecase "Оплатить бронь" as UC3
+  usecase "Отметить посещение" as UC4
+  usecase "Заполнить и сформировать отчет" as UC5
+  usecase "Просмотреть статистику" as UC6
+  usecase "Управлять администраторами" as UC7
+  
+  usecase "Аутентифицироваться" as Auth <<include>>
+  usecase "Получить уведомление" as Notify <<extend>>
+
+
+' Связи акторов с use cases
+Client --> UC1
+Client --> UC2
+Client --> UC3
+
+Admin --> UC4
+Admin --> UC5
+
+Owner --> UC6
+Owner --> UC7
+
+' Include/Extend связи
+UC2 .> Auth : <<include>>
+UC3 .> Auth : <<include>>
+UC4 .> Auth : <<include>>
+UC5 .> Auth : <<include>>
+UC6 .> Auth : <<include>>
+UC7 .> Auth : <<include>>
+
+UC2 ..> Notify : <<extend>>
+UC3 ..> Notify : <<extend>>
+UC4 ..> Notify : <<extend>>
+
+@enduml
