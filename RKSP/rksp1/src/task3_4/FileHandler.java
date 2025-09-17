@@ -8,13 +8,14 @@ class FileHandler {
     }
 
     public void processFile(File file) throws InterruptedException {
+        // Проверка (хотя groupBy уже гарантирует соответствие типа)
         if (file.type.equals(fileType)) {
-            int processingTime = file.size * 7; // Время обработки
-            System.out.println("Processing " + file + " for " + processingTime + " ms");
+            int processingTime = file.size * 7;
+            System.out.println("Обработываем " + file + " за " + processingTime + " ms");
             Thread.sleep(processingTime);
-            System.out.println("Processed " + file);
+            System.out.println("Обработан файл: " + file);
         } else {
-            System.out.println("File type " + file.type + " not supported by this handler.");
+            System.out.println("Не тот формат файла");
         }
     }
 }

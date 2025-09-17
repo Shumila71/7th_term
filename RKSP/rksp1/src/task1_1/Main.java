@@ -15,8 +15,8 @@ public class Main {
         System.out.println("Ядра: " + Runtime.getRuntime().availableProcessors());
         System.out.println();
 
-        System.out.println("Последовательная сумма");
-        measureSequential(array);
+//        System.out.println("Последовательная сумма");
+//        measureSequential(array);
 
         System.out.println("\nМногопоточная сумма");
         measureMultiThreaded(array);

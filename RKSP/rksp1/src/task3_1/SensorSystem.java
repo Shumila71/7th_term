@@ -25,13 +25,13 @@ public class SensorSystem {
         // Объединение потоков данных от датчиков
         Observable.combineLatest(temperatureSensor, co2Sensor, (temperature, co2) -> {
             if (temperature > TEMPERATURE_THRESHOLD && co2 > CO2_THRESHOLD) {
-                return "ALARM!!!";
+                return "\nTemperature: " + temperature + "°C, CO2: " + co2 + " ppm"+"\nALARM!!!";
             } else if (temperature > TEMPERATURE_THRESHOLD) {
-                return "Warning: High Temperature - " + temperature + "°C";
+                return "\nTemperature: " + temperature + "°C, CO2: " + co2 + " ppm"+"\nWarning: High Temperature - " + temperature + "°C";
             } else if (co2 > CO2_THRESHOLD) {
-                return "Warning: High CO2 Level - " + co2 + " ppm";
+                return "\nTemperature: " + temperature + "°C, CO2: " + co2 + " ppm"+"\nWarning: High CO2 Level - " + co2 + " ppm";
             } else {
-                return "Temperature: " + temperature + "°C, CO2: " + co2 + " ppm";
+                return "\nTemperature: " + temperature + "°C, CO2: " + co2 + " ppm";
             }
         }).subscribe(new Observer<String>() {
             @Override

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shumakher-ikbo-20-22
+  labels:
+    app: shumakher-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shumakher-app
+  template:
+    metadata:
+      labels:
+        app: shumakher-app
+    spec:
+      containers:
+      - name: shumakher-container
+        image: shumila/shumakher-ikbo-20-22-obraz
+        ports:
+        - containerPort: 8080

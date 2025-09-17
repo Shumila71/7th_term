@@ -7,7 +7,6 @@ public class Main {
         String sourceFile = "D:/code/_7/RKSP/rksp1/src/task2_2/largefile.txt";
         String destinationFile = "copy.txt";
 
-        // Получение экземпляра Runtime для измерения памяти
         Runtime runtime = Runtime.getRuntime();
 
         // Метод 1: FileInputStream/FileOutputStream

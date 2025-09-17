@@ -11,9 +11,6 @@ class File {
 
     @Override
     public String toString() {
-        return "File{" +
-                "type='" + type + '\'' +
-                ", size=" + size +
-                '}';
+        return "File{type='" + type + "', size=" + size + "}";
     }
 }
