@@ -1,0 +1,81 @@
+classDiagram
+    class User {
+        +UUID id
+        +String email
+        +String phone
+        +String fullName
+        +String telegramId
+        +DateTime createdAt
+        +DateTime updatedAt
+        +authenticate()
+    }
+
+    class Client {
+        +List~Booking~ bookings
+    }
+
+    class Administrator {
+        +UUID shiftId
+        +startShift()
+        +endShift()
+    }
+
+    class Owner {
+        +generateReport()
+    }
+
+    class Booking {
+        +UUID id
+        +UUID clientId
+        +UUID hallId
+        +DateTime startTime
+        +DateTime endTime
+        +String status
+        +Decimal amount
+        +String idempotencyKey
+        +create()
+        +cancel()
+    }
+
+    class Hall {
+        +UUID id
+        +String name
+        +String type
+        +Decimal pricePerHour
+        +Boolean isActive
+    }
+
+    class FinancialTransaction {
+        +UUID id
+        +UUID bookingId
+        +String paymentMethod
+        +Decimal amount
+        +String status
+        +DateTime processedAt
+    }
+
+    class ShiftReport {
+        +UUID id
+        +UUID adminId
+        +Date shiftDate
+        +List~Booking~ completedBookings
+    }
+
+    class Notification {
+        +UUID id
+        +UUID userId
+        +String type
+        +String channel
+        +String status
+        +DateTime sentAt
+    }
+
+    User <|-- Client
+    User <|-- Administrator
+    User <|-- Owner
+    Client "1" --> "*" Booking
+    Administrator "1" --> "*" ShiftReport
+    Booking "1" --> "1" FinancialTransaction
+    Hall "1" --> "*" Booking
+    ShiftReport "1" --> "*" FinancialTransaction
+    Notification --> User

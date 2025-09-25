@@ -1,0 +1,75 @@
+erDiagram
+    users {
+        UUID id PK
+        String email UK
+        String phone
+        String fullName
+        String telegramId
+        DateTime createdAt
+        DateTime updatedAt
+    }
+
+    clients {
+        UUID user_id PK,FK
+    }
+
+    administrators {
+        UUID user_id PK,FK
+    }
+
+    owners {
+        UUID user_id PK,FK
+    }
+
+    halls {
+        UUID id PK
+        String name
+        String type
+        Decimal price_per_hour
+        Boolean is_active
+    }
+
+    bookings {
+        UUID id PK
+        UUID client_id FK
+        UUID hall_id FK
+        DateTime start_time
+        DateTime end_time
+        String status
+        Decimal amount
+        String idempotency_key
+    }
+
+    financial_transactions {
+        UUID id PK
+        UUID booking_id FK
+        String payment_method
+        Decimal amount
+        String status
+        DateTime processed_at
+    }
+
+    shift_reports {
+        UUID id PK
+        UUID admin_id FK
+        Date shift_date
+    }
+
+    notifications {
+        UUID id PK
+        UUID user_id FK
+        String type
+        String channel
+        String status
+        DateTime sent_at
+    }
+
+    users ||--|| clients : "is a"
+    users ||--|| administrators : "is a"
+    users ||--|| owners : "is a"
+    clients ||--o{ bookings : "makes"
+    halls ||--o{ bookings : "has"
+    bookings ||--o{ financial_transactions : "has"
+    administrators ||--o{ shift_reports : "creates"
+    shift_reports }o--o{ financial_transactions : "includes"
+    users }o--o{ notifications : "receives"
